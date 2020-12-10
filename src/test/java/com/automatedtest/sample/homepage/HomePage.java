@@ -1,6 +1,8 @@
 package com.automatedtest.sample.homepage;
 
 import com.automatedtest.sample.basepage.BasePage;
+import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,7 +26,8 @@ public class HomePage extends BasePage{
         PageFactory.initElements(driver, this);
     }
 
-    void goToHomePage(String country){
+    @Step("Open the URL")
+   public void goToHomePage(String country){
         driver.get(HOME_PAGE_URL + country);
         wait.forLoading(5);
     }
