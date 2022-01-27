@@ -7,4 +7,4 @@ Feature: Search
     Then "Pablo Leal" is displayed in the first "<nbOfResultsToSearch>" results
     Examples:
       | nbOfResultsToSearch |
-      | 3 |
+      | 3                   |
