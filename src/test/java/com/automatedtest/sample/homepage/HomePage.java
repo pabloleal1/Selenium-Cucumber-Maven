@@ -3,6 +3,7 @@ package com.automatedtest.sample.homepage;
 import com.automatedtest.sample.basepage.BasePage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,6 +23,9 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//*[@id=\"rso\"]/div[1]/div/div[1]")
     private WebElement firstElement;
 
+    @FindBy (id = "L2AGLb")
+    private WebElement Acept;
+
     HomePage() {
         PageFactory.initElements(driver, this);
     }
@@ -29,7 +33,10 @@ public class HomePage extends BasePage{
     @Step("Open the URL")
    public void goToHomePage(String country){
         driver.get(HOME_PAGE_URL + country);
+
         wait.forLoading(5);
+        Acept.click();
+
     }
 
     void checkLogoDisplay() {
