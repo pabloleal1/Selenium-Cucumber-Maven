@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class HomePage extends BasePage{
+public class HomePage extends BasePage {
 
     private static final String HOME_PAGE_URL = "https://www.google.";
 
@@ -23,20 +23,18 @@ public class HomePage extends BasePage{
     @FindBy(xpath = "//*[@id=\"rso\"]/div[1]/div/div[1]")
     private WebElement firstElement;
 
-    @FindBy (id = "L2AGLb")
-    private WebElement Acept;
+    @FindBy(id = "L2AGLb")
+    private WebElement Acept_Coockies;
 
     HomePage() {
         PageFactory.initElements(driver, this);
     }
 
     @Step("Open the URL")
-   public void goToHomePage(String country){
+    public void goToHomePage(String country) {
         driver.get(HOME_PAGE_URL + country);
-
         wait.forLoading(5);
-        Acept.click();
-
+        Acept_Coockies.click();
     }
 
     void checkLogoDisplay() {
@@ -56,7 +54,7 @@ public class HomePage extends BasePage{
         this.searchInput.sendKeys(Keys.ENTER);
     }
 
-    public String verify_First_Elemet(){
+    public String verify_First_Elemet() {
         return this.firstElement.getText();
 
     }
